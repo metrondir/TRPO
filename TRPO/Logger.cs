@@ -16,7 +16,7 @@ namespace TRPO
             {
                 foreach (var data in sensorData)
                 {
-                    writer.WriteLine($"Room: {data.RoomName} Movement: {data.Movement} Tempature: {data.Tempature}");
+                    writer.WriteLine($"Room: {data.RoomName} Number of students: {data.Movement.Count(b => b)} Tempature: {data.Tempature}");
                 }
             }
         }

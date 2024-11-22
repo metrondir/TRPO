@@ -12,7 +12,7 @@ namespace TRPO
         public List<bool> Movement { get; set; }
         public double Tempature { get; set; }
 
-        public bool IsOcupied => Movement.Any(m=> m) && Tempature >28.0;
+        public bool IsOcupied => Movement.Count(b => b) > 5 && Tempature >28.0;
 
 
     }

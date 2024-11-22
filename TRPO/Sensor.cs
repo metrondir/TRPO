@@ -9,7 +9,7 @@ namespace TRPO
 {
     public class Sensor
     {
-        private Random Random = new Random();
+        private static readonly Random Random = new Random();
         public string RoomName { get; set; }   
 
         public Sensor (string roomName)
@@ -20,16 +20,16 @@ namespace TRPO
         {
             return Task.Run(() =>
             {
-                Thread.Sleep(1000);
-                var random = new Random();
+                Thread.Sleep(1000); 
                 return new SensorData
                 {
                     RoomName = RoomName,
-                    Movement = GetMovement(random),
-                    Tempature = random.NextDouble() * 10 + 15
+                    Movement = GetMovement(Random),
+                    Tempature = Random.NextDouble() * 12 + 23
                 };
             });
         }
+
         private List<bool> GetMovement(Random random)
         {
             var result = new List<bool>();
@@ -39,5 +39,6 @@ namespace TRPO
             }
             return result;
         }
+
     }
 }
